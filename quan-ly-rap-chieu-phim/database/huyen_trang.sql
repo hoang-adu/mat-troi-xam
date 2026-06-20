@@ -36,4 +36,21 @@ CREATE TABLE food_order_details (
     FOREIGN KEY (order_id)   REFERENCES food_orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(product_id)  ON DELETE CASCADE
 );
-
+-- Payments
+INSERT INTO payments (booking_id, amount, payment_method, payment_status) VALUES
+(1, 150000.00, 'momo', 'paid'),
+(2, 90000.00,  'cash', 'pending');
+-- Products
+INSERT INTO products (product_name, price, stock_quantity) VALUES
+('Bắp rang bơ lớn', 45000.00, 200),
+('Coca-Cola',        25000.00, 300),
+('Combo đôi',        85000.00, 100);
+-- Food Orders
+INSERT INTO food_orders (customer_id, total_amount) VALUES
+(1, 70000.00),
+(2, 85000.00);
+-- Food Order Details
+INSERT INTO food_order_details (order_id, product_id, quantity, unit_price) VALUES
+(1, 1, 1, 45000.00),
+(1, 2, 1, 25000.00),
+(2, 3, 1, 85000.00);
