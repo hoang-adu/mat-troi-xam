@@ -31,7 +31,10 @@ export class BookingsService {
     return booking;
   }
 
-  async update(id: number, updateBookingDto: UpdateBookingDto): Promise<Booking> {
+  async update(
+    id: number,
+    updateBookingDto: UpdateBookingDto,
+  ): Promise<Booking> {
     const booking = await this.findOne(id);
     Object.assign(booking, updateBookingDto);
     return this.bookingRepository.save(booking);

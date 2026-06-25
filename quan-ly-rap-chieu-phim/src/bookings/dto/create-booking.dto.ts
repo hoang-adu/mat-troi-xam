@@ -1,4 +1,11 @@
-import { IsInt, IsOptional, IsPositive, IsNumber, Min, IsString } from 'class-validator';
+import {
+  IsInt,
+  IsOptional,
+  IsPositive,
+  IsNumber,
+  Min,
+  IsString,
+} from 'class-validator';
 
 export class CreateBookingDto {
   @IsInt({ message: 'customer_id phải là số nguyên' })

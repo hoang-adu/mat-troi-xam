@@ -1,4 +1,11 @@
-import { IsString, IsNotEmpty, IsOptional, IsInt, IsPositive, IsDateString } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsOptional,
+  IsInt,
+  IsPositive,
+  IsDateString,
+} from 'class-validator';
 
 export class CreateMovieDto {
   @IsString()
@@ -22,7 +29,10 @@ export class CreateMovieDto {
   @IsOptional()
   actors?: string;
 
-  @IsDateString({}, { message: 'Ngày phát hành không đúng định dạng (YYYY-MM-DD)' })
+  @IsDateString(
+    {},
+    { message: 'Ngày phát hành không đúng định dạng (YYYY-MM-DD)' },
+  )
   @IsOptional()
   release_date?: string;
 

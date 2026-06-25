@@ -31,7 +31,10 @@ export class CustomersService {
     return customer;
   }
 
-  async update(id: number, updateCustomerDto: UpdateCustomerDto): Promise<Customer> {
+  async update(
+    id: number,
+    updateCustomerDto: UpdateCustomerDto,
+  ): Promise<Customer> {
     const customer = await this.findOne(id);
     Object.assign(customer, updateCustomerDto);
     return this.customerRepository.save(customer);

@@ -11,12 +11,13 @@ async function bootstrap() {
 
   app.use(
     session({
-      secret: 'my-secret-key', // Thay bằng giá trị bí mật thực tế (env variable)
+      secret: process.env.SESSION_SECRET ?? 'my-secret-key',
       resave: false,
       saveUninitialized: false,
       cookie: {
         httpOnly: true,
-        maxAge: 3600 * 1000, // 1 giờ
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: Number(process.env.SESSION_MAX_AGE ?? 3600 * 1000),
         sameSite: 'strict',
       },
     }),
@@ -25,5 +26,4 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(process.env.PORT ?? 3000);
 }
-bootstrap();
- 
+void bootstrap();

@@ -1,4 +1,10 @@
-import { IsInt, IsOptional, IsPositive, IsDateString, IsString } from 'class-validator';
+import {
+  IsInt,
+  IsOptional,
+  IsPositive,
+  IsDateString,
+  IsString,
+} from 'class-validator';
 
 export class CreateShowtimeDto {
   @IsInt({ message: 'movie_id phải là số nguyên' })

@@ -35,7 +35,10 @@ export class FoodOrdersService {
   }
 
   // UPDATE - Cập nhật hóa đơn theo id
-  async update(id: number, updateFoodOrderDto: UpdateFoodOrderDto): Promise<FoodOrder> {
+  async update(
+    id: number,
+    updateFoodOrderDto: UpdateFoodOrderDto,
+  ): Promise<FoodOrder> {
     const order = await this.findOne(id);
     Object.assign(order, updateFoodOrderDto);
     return this.foodOrderRepository.save(order);

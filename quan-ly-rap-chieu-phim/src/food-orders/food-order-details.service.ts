@@ -18,10 +18,15 @@ export class FoodOrderDetailsService {
   }
 
   async findAll(): Promise<FoodOrderDetail[]> {
-    return this.detailRepository.find({ order: { order_id: 'ASC', product_id: 'ASC' } });
+    return this.detailRepository.find({
+      order: { order_id: 'ASC', product_id: 'ASC' },
+    });
   }
 
-  async findOne(order_id: number, product_id: number): Promise<FoodOrderDetail> {
+  async findOne(
+    order_id: number,
+    product_id: number,
+  ): Promise<FoodOrderDetail> {
     const detail = await this.detailRepository.findOne({
       where: { order_id, product_id },
     });
@@ -50,7 +55,10 @@ export class FoodOrderDetailsService {
     return this.detailRepository.save(detail);
   }
 
-  async remove(order_id: number, product_id: number): Promise<{ message: string }> {
+  async remove(
+    order_id: number,
+    product_id: number,
+  ): Promise<{ message: string }> {
     const detail = await this.findOne(order_id, product_id);
     await this.detailRepository.remove(detail);
     return {

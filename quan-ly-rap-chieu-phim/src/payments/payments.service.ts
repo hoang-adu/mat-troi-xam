@@ -31,7 +31,10 @@ export class PaymentsService {
     return payment;
   }
 
-  async update(id: number, updatePaymentDto: UpdatePaymentDto): Promise<Payment> {
+  async update(
+    id: number,
+    updatePaymentDto: UpdatePaymentDto,
+  ): Promise<Payment> {
     const payment = await this.findOne(id);
     Object.assign(payment, updatePaymentDto);
     return this.paymentRepository.save(payment);

@@ -62,10 +62,7 @@ export class TicketsController {
   // Body: { booking_id?, showtime_id?, seat_id?, ticket_price? }
   // ─────────────────────────────────────────
   @Put(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() dto: UpdateTicketDto,
-  ) {
+  update(@Param('id', ParseIntPipe) id: number, @Body() dto: UpdateTicketDto) {
     return this.ticketsService.update(id, dto);
   }
 

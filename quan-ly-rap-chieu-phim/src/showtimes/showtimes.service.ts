@@ -31,7 +31,10 @@ export class ShowtimesService {
     return showtime;
   }
 
-  async update(id: number, updateShowtimeDto: UpdateShowtimeDto): Promise<Showtime> {
+  async update(
+    id: number,
+    updateShowtimeDto: UpdateShowtimeDto,
+  ): Promise<Showtime> {
     const showtime = await this.findOne(id);
     Object.assign(showtime, updateShowtimeDto);
     return this.showtimeRepository.save(showtime);
